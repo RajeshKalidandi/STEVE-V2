@@ -26,6 +26,9 @@ if %errorlevel% neq 0 (
     exit /b %errorlevel%
 )
 
+echo Installing additional requirements...
+pip install requests python-dotenv
+
 echo Setting up Rasa...
 cd backend\rasa_model
 rasa train

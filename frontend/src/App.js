@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './App.css';
 
 function App() {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
+  const [isTyping, setIsTyping] = useState(false);
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(scrollToBottom, [messages]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -12,12 +20,15 @@ function App() {
 
     setMessages([...messages, { text: input, sender: 'user' }]);
     setInput('');
+    setIsTyping(true);
 
     try {
       const response = await axios.post('http://localhost:8000/chat', { message: input });
+      setIsTyping(false);
       setMessages(messages => [...messages, { text: response.data.response, sender: 'steve' }]);
     } catch (error) {
       console.error('Error:', error);
+      setIsTyping(false);
     }
   };
 
@@ -30,6 +41,8 @@ function App() {
             {message.text}
           </div>
         ))}
+        {isTyping && <div className="message steve typing">STEVE is typing...</div>}
+        <div ref={messagesEndRef} />
       </div>
       <form onSubmit={handleSubmit}>
         <input

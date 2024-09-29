@@ -1,46 +1,41 @@
 # STEVE: Smart Tech-Enabled Virtual Entity
 
-STEVE is an advanced AI assistant designed to be intelligent, adaptable, and user-friendly. This project uses Rasa for natural language processing, FastAPI for the backend, and React for the frontend.
+## Project Status: Under Construction 🚧
 
-## Prerequisites
+STEVE is an AI assistant project currently under development. While core functionalities are being implemented, the project is not yet fully functional due to some dependency and integration issues.
 
-- Python 3.9
-- Node.js 14+
-- npm 6+
+## Features (Planned)
+
+- Natural language processing using Rasa
+- Weather information retrieval
+- News updates
+- Voice interaction capabilities
+
+## Current Limitations
+
+- Dependency issues with some Python packages
+- Integration challenges between components
 
 ## Setup
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/STEVE.git
-   cd STEVE
-   ```
+Due to ongoing development, setup instructions are not finalized. However, the project uses:
 
-2. Run the setup script:
-   ```
-   setup.bat
-   ```
+- Python 3.9+
+- FastAPI
+- Rasa
+- SpeechRecognition and pyttsx3 for voice features
 
-   This script will:
-   - Create and activate a virtual environment
-   - Install all required Python packages
-   - Train the Rasa model
+## Next Steps
 
-3. Start the backend:
-   ```
-   cd backend
-   uvicorn main:app --reload
-   ```
+- Resolve dependency conflicts
+- Complete integration of all components
+- Enhance error handling and fallback responses
+- Expand AI capabilities
 
-4. In a new terminal, start the frontend:
-   ```
-   cd frontend
-   npm install
-   npm start
-   ```
+## Contributing
 
-## Usage
+As the project is in early stages, we're not accepting contributions at this time. Stay tuned for updates!
 
-After starting both the backend and frontend, you can interact with STEVE through the web interface at `http://localhost:3000`.
+## License
 
-## Project Structure
+[MIT License](LICENSE)

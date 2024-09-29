@@ -8,6 +8,28 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - ask_weather
+  - ask_news
+  - ask_name
+  - ask_capabilities
+  - ask_joke
+  - inform
+
+entities:
+  - city
+  - topic
+
+slots:
+  city:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: city
+  topic:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: topic
 
 responses:
   utter_greet:
@@ -28,6 +50,25 @@ responses:
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+  utter_capabilities:
+  - text: "I can help you with weather information and news updates."
+
+  utter_name:
+  - text: "My name is Steve, nice to meet you!"
+
+  utter_weather:
+  - text: "I can tell you about the weather. Which city are you interested in?"
+
+  utter_joke:
+  - text: "Here's a joke: Why don't scientists trust atoms? Because they make up everything!"
+
+  utter_news:
+  - text: "I can provide you with the latest news. What topic are you interested in?"
+
+actions:
+  - action_get_weather
+  - action_get_news
 
 session_config:
   session_expiration_time: 60
